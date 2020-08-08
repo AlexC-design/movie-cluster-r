@@ -1,0 +1,17 @@
+@import "../scss/variables";
+
+html {
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center;
+  font-size: 18px;
+
+  body {
+    background-color: color(dark-blue);
+    color: white;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+}

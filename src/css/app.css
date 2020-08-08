@@ -1,0 +1,16 @@
+html {
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center;
+  font-size: 18px;
+}
+
+html body {
+  background-color: #18191e;
+  color: white;
+}
+
+html * {
+  margin: 0;
+  padding: 0;
+}
+/*# sourceMappingURL=app.css.map */
