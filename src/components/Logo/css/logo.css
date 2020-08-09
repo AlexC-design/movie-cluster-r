@@ -1,0 +1,179 @@
+.logo-root {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.logo-root .logo-container {
+  width: 600px;
+  height: 100px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.logo-root .logo-container .m {
+  position: absolute;
+  top: 26px;
+  left: 39px;
+}
+
+.logo-root .logo-container .ovie {
+  position: absolute;
+  top: 24px;
+  left: 110px;
+}
+
+.logo-root .logo-container .c {
+  position: absolute;
+  top: 25px;
+  left: 277px;
+}
+
+.logo-root .logo-container .luster {
+  position: absolute;
+  top: 24px;
+  left: 329px;
+}
+
+.logo-root .logo-container .green-circle {
+  position: absolute;
+  top: 19px;
+  left: 270px;
+}
+
+.logo-root .logo-container .white-circle {
+  position: absolute;
+  top: -34px;
+  left: 215px;
+  fill: none;
+  stroke: white;
+  stroke-width: 13px;
+  stroke-linecap: round;
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.logo-root .logo-container .white-circle circle {
+  stroke-dasharray: 490;
+  stroke-dashoffset: 490;
+  opacity: 1;
+}
+
+.logo-root.icon-state {
+  top: 50px;
+  left: 50px;
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
+}
+
+.logo-root.icon-state .logo-container {
+  width: 600px;
+  height: 100px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.logo-root.icon-state .logo-container .m {
+  position: absolute;
+  top: 26px;
+  left: 270px;
+}
+
+.logo-root.icon-state .logo-container .ovie {
+  position: absolute;
+  top: 24px;
+  left: 110px;
+  opacity: 0;
+}
+
+.logo-root.icon-state .logo-container .c {
+  position: absolute;
+  top: 25px;
+  left: 270px;
+  opacity: 0;
+  -webkit-transform: scale(2.6);
+          transform: scale(2.6);
+}
+
+.logo-root.icon-state .logo-container .luster {
+  position: absolute;
+  top: 24px;
+  left: 329px;
+  opacity: 0;
+}
+
+.logo-root.icon-state .logo-container .green-circle {
+  position: absolute;
+  top: 22px;
+  left: 271px;
+  -webkit-transform: scale(2.6);
+          transform: scale(2.6);
+}
+
+.logo-root.icon-state .logo-container .white-circle {
+  position: absolute;
+  top: -34px;
+  left: 215px;
+  fill: none;
+  stroke: white;
+  stroke-width: 13px;
+  stroke-linecap: round;
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.logo-root.icon-state .logo-container .white-circle circle {
+  stroke-dasharray: 490;
+  stroke-dashoffset: 45;
+  opacity: 0.2;
+}
+
+.logo-root.text-state {
+  -webkit-transition: all 0.4s 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: all 0.4s 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.logo-root.text-state .logo-container * {
+  -webkit-transition: all 0.4s 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.logo-root.text-state .logo-container .white-circle circle {
+  -webkit-transition: all 0.4s 0s ease-out, opacity 0s 0.4s ease-out;
+  transition: all 0.4s 0s ease-out, opacity 0s 0.4s ease-out;
+}
+
+.logo-root.icon-state {
+  -webkit-transition: all 0.4s 1.6s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: all 0.4s 1.6s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.logo-root.icon-state .logo-container * {
+  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.logo-root.icon-state .logo-container .white-circle {
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.logo-root.icon-state .logo-container .white-circle circle {
+  -webkit-transition: all 0.8s 0.5s ease-out, opacity 0.2s 1.8s ease-out;
+  transition: all 0.8s 0.5s ease-out, opacity 0.2s 1.8s ease-out;
+}
+/*# sourceMappingURL=logo.css.map */
