@@ -2,7 +2,9 @@
 
 $colors: (
   dark-blue: #18191e,
-  green: #02fdd0
+  main-green: #02fdd0,
+  light-green: #a4ffee,
+  dark-green: #004135
 );
 
 @function color($color-name) {
@@ -17,3 +19,29 @@ $cbOut: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $cbSlowIn: cubic-bezier(0.6, 0.04, 0.98, 0.335);
 $cbSlowInMild: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 $cbSlowOut: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+// ------------- MEDIA QUERIES --------------
+
+@mixin width1200 {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin width992 {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin width768 {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin width576 {
+  @media (max-width: 576px) {
+    @content;
+  }
+}

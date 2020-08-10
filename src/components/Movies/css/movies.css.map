@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "movies.scss",
+        "../../../scss/variables.scss"
+    ],
+    "names": [],
+    "file": "movies.css"
+}

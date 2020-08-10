@@ -8,10 +8,69 @@ html {
   body {
     background-color: color(dark-blue);
     color: white;
+
+    .page {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
   }
 
   * {
     margin: 0;
     padding: 0;
   }
+}
+
+// --------------- TRANSITION ANIMATIONS ----------------
+
+// -- FADE --
+.page-fade-enter {
+  opacity: 0;
+}
+.page-fade-enter-active {
+  opacity: 1;
+  transition: opacity 0.4s 0.5s;
+}
+
+.page-fade-exit {
+  opacity: 1;
+}
+.page-fade-exit-active {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+// -- MC-FADE --
+.mc-fade-in {
+  animation: mc-fade-in 0.4s ease-out;
+}
+
+.mc-fade-in-slow {
+  animation: mc-fade-in 1s ease-out;
+}
+
+@keyframes mc-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mc-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// -- HIDE --
+
+.hide {
+  animation: mc-fade-out 0.4s 0.4s ease-out forwards !important
 }

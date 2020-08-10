@@ -9,8 +9,86 @@ html body {
   color: white;
 }
 
+html body .page {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 html * {
   margin: 0;
   padding: 0;
+}
+
+.page-fade-enter {
+  opacity: 0;
+}
+
+.page-fade-enter-active {
+  opacity: 1;
+  -webkit-transition: opacity 0.4s 0.5s;
+  transition: opacity 0.4s 0.5s;
+}
+
+.page-fade-exit {
+  opacity: 1;
+}
+
+.page-fade-exit-active {
+  opacity: 0;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.mc-fade-in {
+  -webkit-animation: mc-fade-in 0.4s ease-out;
+          animation: mc-fade-in 0.4s ease-out;
+}
+
+.mc-fade-in-slow {
+  -webkit-animation: mc-fade-in 1s ease-out;
+          animation: mc-fade-in 1s ease-out;
+}
+
+@-webkit-keyframes mc-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mc-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes mc-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes mc-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.hide {
+  -webkit-animation: mc-fade-out 0.4s 0.4s ease-out forwards !important;
+          animation: mc-fade-out 0.4s 0.4s ease-out forwards !important;
 }
 /*# sourceMappingURL=app.css.map */

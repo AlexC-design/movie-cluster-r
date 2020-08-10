@@ -20,14 +20,18 @@ $white-circle-opacity-back: 0s 0.4s ease-out;
   left: 50%;
   width: 0;
   height: 0;
+  z-index: 20;
 
   .logo-container {
     // background-color: rebeccapurple;
-    width: 600px;
+    width: 570px;
     height: 100px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -100%) scale(1);
     display: flex;
     justify-content: center;
+    position: absolute;
+
+    transition: width 0.9s 0.2s ease-out;
 
     .m {
       position: absolute;
@@ -77,20 +81,29 @@ $white-circle-opacity-back: 0s 0.4s ease-out;
         opacity: 1;
       }
     }
+
+    @include width768 {
+      transform: translate(-50%, -100%) scale(0.7);
+    }
+    @include width576 {
+      transform: translate(-50%, -100%) scale(0.5);
+    }
   }
 
   &.icon-state {
-    top: 50px;
-    left: 50px;
+    top: 55px;
+    left: 70px;
     transform: scale(0.3);
 
     .logo-container {
       //   background-color: rebeccapurple;
-      width: 600px;
+      width: 620px;
       height: 100px;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -100%) scale(1);
       display: flex;
       justify-content: center;
+
+      transition: width 0.4s $cbInOut;
 
       .m {
         position: absolute;
@@ -147,6 +160,16 @@ $white-circle-opacity-back: 0s 0.4s ease-out;
           opacity: 0.2;
         }
       }
+      @include width768 {
+        transform: translate(-50%, -100%) scale(0.7);
+      }
+      @include width576 {
+        transform: translate(-50%, -100%) scale(0.5);
+      }
+    }
+
+    @include width576 {
+      transform: translate(-50%, -100%) scale(0.4);
     }
   }
 }
@@ -171,6 +194,8 @@ $white-circle-opacity-back: 0s 0.4s ease-out;
   &.icon-state {
     transition: all $position-anim;
 
+    animation: enable-click 4s linear;
+
     .logo-container {
       * {
         transition: all $letters-anim;
@@ -181,6 +206,15 @@ $white-circle-opacity-back: 0s 0.4s ease-out;
         circle {
           transition: all $white-circle-anim, opacity $white-circle-opacity;
         }
+      }
+    }
+
+    @keyframes enable-click {
+      0% {
+        pointer-events: none;
+      }
+      100% {
+        pointer-events: all;
       }
     }
   }
