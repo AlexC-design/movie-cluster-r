@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAKA,AAAA,aAAa,CAAC;EACZ,OAAO,EAAE,CAAC;EACV,SAAS,EAAE,sCAAsC;CAClD;;AAED,UAAU,CAAV,YAAU;EACR,EAAE;IACA,OAAO,EAAE,CAAC;;EAEZ,IAAI;IACF,OAAO,EAAE,CAAC",
     "sources": [
         "movies.scss",
         "../../../scss/variables.scss"

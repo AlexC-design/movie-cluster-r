@@ -12,7 +12,7 @@ import "./css/logo.css";
 const Logo = ({ history, logoCompact, setLogoCompactOff }) => {
   const handleClick = () => {
     setLogoCompactOff();
-    if (history.location.pathname === "/movies") {
+    if (history.location.pathname !== "/") {
       history.push("/");
     }
   };
