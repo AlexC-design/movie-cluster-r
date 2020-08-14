@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { withLastLocation } from "react-router-last-location";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setErrorOn } from "../../store/state/errorPopup";
+import { filterToName } from "../../services/filterToName";
 import { API } from "../../api";
 import MovieCard from "../MovieCard/MovieCard";
 import "./css/movies.css";
@@ -9,13 +10,21 @@ import "./css/movies.css";
 const Movies = ({ lastLocation }) => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-  const [listType, setListType] = useState("popular");
   const dispatch = useDispatch();
-  //now_playing   top_rated
+  const { filter } = useSelector(state => ({ filter: state.filter }));
 
   const fetchMovies = async () => {
     try {
-      let { data } = await API.fetchMovies(listType, 1);
+      let { data } = await API.fetchMovies(filter, 1);
+      setMovies(data.results);
+    } catch (error) {
+      dispatch(setErrorOn("An error has occured when fetching movies"));
+    }
+  };
+
+  const addMovies = async () => {
+    try {
+      let { data } = await API.fetchMovies(filter, page);
       setMovies([...movies, ...data.results]);
     } catch (error) {
       dispatch(setErrorOn("An error has occured when fetching movies"));
@@ -24,7 +33,11 @@ const Movies = ({ lastLocation }) => {
 
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [filter]);
+
+  useEffect(() => {
+    addMovies();
+  }, [page]);
 
   return (
     <div
@@ -33,7 +46,7 @@ const Movies = ({ lastLocation }) => {
       }`}
     >
       <div className="container-wide">
-        <div className="page-title">Most popular movies</div>
+        <div className="page-title">{filterToName[filter]} movies</div>
         <div className="cards-container">
           {movies.map(movie => {
             if (movie.backdrop_path) {

@@ -1,9 +1,8 @@
 import React from "react";
 import "./css/movie-card.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import saveIconOff from "../../assets/svg/save-icon-off.svg";
 import saveIconOn from "../../assets/svg/save-icon-on.svg";
-import { setSelectedMovieId } from "../../store/state/selectedMovie";
 import { withRouter } from "react-router";
 
 const MovieCard = ({
@@ -19,10 +18,8 @@ const MovieCard = ({
     baseURL: state.config.images.secure_base_url,
     backdropSizes: state.config.images.backdrop_sizes
   }));
-  const dispatch = useDispatch();
 
   const handleCardClick = () => {
-    dispatch(setSelectedMovieId(id));
     history.push(`/movie/${id}`);
   };
 

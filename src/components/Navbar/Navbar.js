@@ -1,10 +1,13 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { withLastLocation } from "react-router-last-location";
+import FilterDropdown from "./FilterDropdown/FilterDropdown";
 import "./css/navbar.css";
 
 const Navbar = ({ location, lastLocation }) => {
-  return !(location.pathname === "/" || location.pathname.includes("/movie/")) ? (
+  return !(
+    location.pathname === "/" || location.pathname.includes("/movie/")
+  ) ? (
     <div
       className={`navbar ${
         lastLocation && lastLocation.pathname === "/" ? "navbar-enter" : ""
@@ -33,6 +36,7 @@ const Navbar = ({ location, lastLocation }) => {
         >
           My list
         </Link>
+        <FilterDropdown />
       </div>
     </div>
   ) : null;
