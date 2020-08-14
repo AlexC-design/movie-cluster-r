@@ -32,6 +32,7 @@ const FilterDropdown = () => {
               dispatch(setFilter(filter));
               toggleDropdown();
             }}
+            key={filter}
           >
             {filterToName[filter]}
           </div>

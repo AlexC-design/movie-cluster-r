@@ -9,6 +9,7 @@ import Movies from "../components/Movies/Movies";
 import Genres from "../components/Genres/Genres";
 import MyList from "../components/MyList/MyList";
 import MoviePage from "./MoviePage/MoviePage";
+import GenreMoviesPage from "./GenreMoviesPage/GenreMoviesPage";
 
 const Routes = ({
   location,
@@ -45,6 +46,7 @@ const Routes = ({
             <Route path="/" exact component={HomePage} />
             <Route path="/movies" exact component={Movies} />
             <Route path="/genres" exact component={Genres} />
+            <Route path="/genre/:id" exact component={GenreMoviesPage} />
             <Route
               path="/genres/how"
               exact

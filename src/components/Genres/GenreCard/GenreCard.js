@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { API } from "../../../api";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./css/genre-card.css";
+import { setGenre } from "../../../store/state/genre";
+import { withRouter } from "react-router";
 
-const GenreCard = ({ genre, how }) => {
+const GenreCard = ({ genre, how, history }) => {
   const [images, setImages] = useState([]);
   const [image, setImage] = useState(0);
   const [image2, setImage2] = useState(1);
@@ -12,6 +14,7 @@ const GenreCard = ({ genre, how }) => {
     ["top", "bottom", "left", "right"][Math.floor(Math.random() * 4)]
   );
   const [resetCycle, setResetCycle] = useState(0);
+  const dispatch = useDispatch();
 
   const { baseURL, posterSizes } = useSelector(state => ({
     baseURL: state.config.images.secure_base_url,
@@ -121,9 +124,17 @@ const GenreCard = ({ genre, how }) => {
     return newPosition;
   };
 
+  // ------------------- GO TO GENRE ----------------------
+
+  const handleClick = () => {
+    console.log(genre)
+    dispatch(setGenre(genre));
+    history.push(`genre/${genre.id}`);
+  };
+
   return images.length ? (
     <>
-      <div className="genre-card">
+      <div className="genre-card" onClick={handleClick}>
         <div className={`images-container ${how ? "how" : ""}`}>
           <img
             className={`current-image ${position}`}
@@ -183,4 +194,4 @@ const GenreCard = ({ genre, how }) => {
   ) : null;
 };
 
-export default GenreCard;
+export default withRouter(GenreCard);
