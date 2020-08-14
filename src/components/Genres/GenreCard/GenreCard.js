@@ -3,7 +3,7 @@ import { API } from "../../../api";
 import { useSelector } from "react-redux";
 import "./css/genre-card.css";
 
-const GenreCard = ({ genre }) => {
+const GenreCard = ({ genre, how }) => {
   const [images, setImages] = useState([]);
   const [image, setImage] = useState(0);
   const [image2, setImage2] = useState(1);
@@ -31,17 +31,30 @@ const GenreCard = ({ genre }) => {
     }
   };
 
+  // --------------------- FETCHING IMAGES -----------------------
+
   const getImages = async () => {
     let response = await API.fetchMoviesFromGenre(genre.id);
-    const images = response.data.results.map(movie => {
+
+    const images = response.data.results.reduce((moviePaths, movie) => {
       if (movie.poster_path) {
-        return movie.poster_path;
+        moviePaths.push(movie.poster_path);
       }
-    });
+      return moviePaths;
+    }, []);
+
     setImages(images);
   };
 
   useEffect(() => {
+    getImages();
+  }, []);
+
+  // ------------------------- CYCLE -------------------------
+
+  useEffect(() => {
+    let timer = 1000 * Math.floor(Math.random() * 5);
+
     if (images.length) {
       const timeoutId = setTimeout(() => {
         if (position === "center") {
@@ -52,7 +65,7 @@ const GenreCard = ({ genre }) => {
           setPosition("center");
           setPosition2(oppositePosition(position));
         }
-      }, 1000);
+      }, timer + 500);
 
       const timeoutId2 = setTimeout(() => {
         if (position !== "center") {
@@ -61,7 +74,7 @@ const GenreCard = ({ genre }) => {
         if (position2 !== "center") {
           setImage(getRandomIndex());
         }
-      }, 2000);
+      }, timer + 2500);
 
       const timeoutId3 = setTimeout(() => {
         if (position !== "center") {
@@ -71,7 +84,7 @@ const GenreCard = ({ genre }) => {
           setPosition(getRandomPosition());
         }
         setResetCycle(resetCycle + 1);
-      }, 3000);
+      }, timer + 2600);
 
       return () => {
         clearTimeout(timeoutId);
@@ -81,11 +94,12 @@ const GenreCard = ({ genre }) => {
     }
   }, [images.length, resetCycle]);
 
+  // ------------------- GET NEW RANDOM VALUES ----------------------
+
   const getRandomIndex = () => {
     let index = Math.floor(Math.random() * images.length);
-    console.log(index);
 
-    while (index === image2) {
+    while ([image, image2].includes(index)) {
       index = Math.floor(Math.random() * images.length);
     }
 
@@ -94,37 +108,78 @@ const GenreCard = ({ genre }) => {
   const getRandomPosition = () => {
     let positions = ["top", "bottom", "left", "right"];
 
-    let position = positions[Math.floor(Math.random() * 4)];
+    let newPosition = positions[Math.floor(Math.random() * 4)];
 
-    while (position === position2) {
-      position = positions[Math.floor(Math.random() * 4)];
+    while (
+      [oppositePosition(position), oppositePosition(position2)].includes(
+        newPosition
+      )
+    ) {
+      newPosition = positions[Math.floor(Math.random() * 4)];
     }
 
-    return position;
+    return newPosition;
   };
 
-  useEffect(() => {
-    getImages();
-  }, []);
-
-  useEffect(() => {
-    console.log(position, position2);
-  });
-
   return images.length ? (
-    <div className="genre-card">
-      <div className="images-container">
-        <img
-          className={`current-image ${position}`}
-          src={`${baseURL}${posterSizes[1]}${images[image]}`}
-        />
-        <img
-          className={`next-image ${position2}`}
-          src={`${baseURL}${posterSizes[1]}${images[image2]}`}
-        />
+    <>
+      <div className="genre-card">
+        <div className={`images-container ${how ? "how" : ""}`}>
+          <img
+            className={`current-image ${position}`}
+            src={`${baseURL}${posterSizes[1]}${images[image]}`}
+          />
+          <img
+            className={`next-image ${position2}`}
+            src={`${baseURL}${posterSizes[1]}${images[image2]}`}
+          />
+        </div>
+        <div className="genre-name">{genre.name}</div>
       </div>
-      <div className="genre-name">{genre.name}</div>
-    </div>
+
+      {how && (
+        <div style={{ position: "absolute", top: "700px", textAlign: "left" }}>
+          <div className="mc-green">image1 pos: ["{position} "]</div>
+          <div className="mc-yellow">image2 pos: ["{position2}"]</div>
+
+          <div>
+            [{" "}
+            {images.map((_, index) => (
+              <span
+                className={`${
+                  index === image
+                    ? "mc-green"
+                    : index === image2
+                    ? "mc-yellow"
+                    : ""
+                }`}
+              >
+                {index}
+                {index !== images.length - 1 ? ", " : " "}
+              </span>
+            ))}
+            ]
+          </div>
+          <div>
+            {["top", "bottom", "left", "right"].map(pos => (
+              <span
+                className={`${
+                  pos === position
+                    ? "mc-green"
+                    : pos === position2
+                    ? "mc-yellow"
+                    : ""
+                }`}
+              >
+                ["{pos}"]
+              </span>
+            ))}
+          </div>
+
+          <div>cycle: {resetCycle} </div>
+        </div>
+      )}
+    </>
   ) : null;
 };
 

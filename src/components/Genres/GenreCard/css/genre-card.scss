@@ -15,9 +15,9 @@
   .images-container {
     position: relative;
     border: solid 2px rgb(64, 63, 66);
-    // overflow: hidden;
-    height: 231px;
-    width: 154px;
+    overflow: hidden;
+    height: 230px;
+    width: 152px;
     background-color: color(darker-blue);
 
     transition: all 0.4s $cbSlowOut;
@@ -35,7 +35,7 @@
       left: 0;
       top: 0;
 
-      transition: all 0.8s $cbOut;
+      transition: all 2s $cbSlowOut;
 
       &.top {
         transform: translateY(-101%);
@@ -58,6 +58,10 @@
 
     &:hover {
       cursor: pointer;
+    }
+
+    &.how {
+      overflow: visible;
     }
   }
 

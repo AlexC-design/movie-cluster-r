@@ -52,6 +52,14 @@ html * {
   padding: 0;
 }
 
+.mc-green {
+  color: #18e667;
+}
+
+.mc-yellow {
+  color: #f7d231;
+}
+
 .page-fade-enter {
   opacity: 0;
 }

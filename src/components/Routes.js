@@ -45,6 +45,11 @@ const Routes = ({
             <Route path="/" exact component={HomePage} />
             <Route path="/movies" exact component={Movies} />
             <Route path="/genres" exact component={Genres} />
+            <Route
+              path="/genres/how"
+              exact
+              render={props => <Genres {...props} how={true} />}
+            />
             <Route path="/mylist" exact component={MyList} />
             <Route path="/movie/:id" exact component={MoviePage} />
           </Switch>

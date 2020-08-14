@@ -23,8 +23,9 @@
 .genre-card .images-container {
   position: relative;
   border: solid 2px #403f42;
-  height: 231px;
-  width: 154px;
+  overflow: hidden;
+  height: 230px;
+  width: 152px;
   background-color: #0c0d10;
   -webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -42,8 +43,8 @@
   opacity: 1;
   left: 0;
   top: 0;
-  -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .genre-card .images-container img.top {
@@ -74,6 +75,10 @@
 
 .genre-card .images-container:hover {
   cursor: pointer;
+}
+
+.genre-card .images-container.how {
+  overflow: visible;
 }
 
 .genre-card:hover {

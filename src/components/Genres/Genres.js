@@ -3,13 +3,13 @@ import { API } from "../../api";
 import GenreCard from "./GenreCard/GenreCard";
 import "./css/genres.css";
 
-const Genres = () => {
+const Genres = ({ how }) => {
   const [genres, setGenres] = useState([]);
 
   const getGenres = async () => {
     let response = await API.fetchGenres();
 
-    setGenres([response.data.genres[0]]);
+    setGenres(how ? [response.data.genres[0]] : response.data.genres);
   };
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Genres = () => {
         <div className="page-title">Genres</div>
         <div className="cards-container">
           {genres.map(genre => (
-            <GenreCard genre={genre} key={genre}/>
+            <GenreCard genre={genre} key={genre} how={how} />
           ))}
         </div>
       </div>
