@@ -1,0 +1,13 @@
+.actor-card img {
+  margin-right: 20px;
+  border: solid 2px white;
+}
+
+.actor-card .character-name {
+  font-weight: bold;
+}
+
+.actor-card .actor-name {
+  opacity: 0.5;
+}
+/*# sourceMappingURL=actor-card.css.map */

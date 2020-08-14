@@ -17,7 +17,7 @@ const Logo = ({ history, logoCompact, setLogoCompactOff }) => {
     }
   };
 
-  return (
+  return !history.location.pathname.includes("/movie/") ? (
     <div className={`logo-root ${logoCompact ? "icon" : "text"}-state`}>
       <div className="logo-container" onClick={handleClick}>
         <svg className="white-circle" width="180" height="180">
@@ -30,7 +30,7 @@ const Logo = ({ history, logoCompact, setLogoCompactOff }) => {
         <img className="green-circle" src={greenCircle} alt="" />
       </div>
     </div>
-  );
+  ) : null;
 };
 
 const mapStateToProps = state => ({

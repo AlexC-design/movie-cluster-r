@@ -14,6 +14,33 @@ html {
       width: 100%;
       top: 0;
       left: 0;
+      padding-top: 50px;
+
+      .page-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 50px 0;
+      }
+
+      .container-wide {
+        max-width: 1800px;
+        margin: 0 auto;
+        padding: 0 40px;
+
+        @include width992 {
+          padding: 0;
+        }
+      }
+
+      .container-narrow {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px;
+
+        @include width992 {
+          padding: 0;
+        }
+      }
     }
   }
 
@@ -72,5 +99,5 @@ html {
 // -- HIDE --
 
 .hide {
-  animation: mc-fade-out 0.4s 0.4s ease-out forwards !important
+  animation: mc-fade-out 0.4s 0.4s ease-out forwards !important;
 }

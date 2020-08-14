@@ -14,6 +14,37 @@ html body .page {
   width: 100%;
   top: 0;
   left: 0;
+  padding-top: 50px;
+}
+
+html body .page .page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 50px 0;
+}
+
+html body .page .container-wide {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 992px) {
+  html body .page .container-wide {
+    padding: 0;
+  }
+}
+
+html body .page .container-narrow {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+@media (max-width: 992px) {
+  html body .page .container-narrow {
+    padding: 0;
+  }
 }
 
 html * {

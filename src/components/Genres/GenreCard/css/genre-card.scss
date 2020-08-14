@@ -1,0 +1,79 @@
+@import "../../../../scss/variables.scss";
+
+.genre-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 5s $cbSlowOut;
+
+  .genre-name {
+    margin-top: 5px;
+  }
+
+  .images-container {
+    position: relative;
+    border: solid 2px rgb(64, 63, 66);
+    // overflow: hidden;
+    height: 231px;
+    width: 154px;
+    background-color: color(darker-blue);
+
+    transition: all 0.4s $cbSlowOut;
+
+    .current-image {
+      position: absolute;
+    }
+
+    .next-image {
+      position: absolute;
+    }
+
+    img {
+      opacity: 1;
+      left: 0;
+      top: 0;
+
+      transition: all 0.8s $cbOut;
+
+      &.top {
+        transform: translateY(-101%);
+      }
+
+      &.bottom {
+        transform: translateY(101%);
+      }
+      &.left {
+        transform: translateX(-101%);
+      }
+      &.right {
+        transform: translateX(101%);
+      }
+      &.center {
+        transform: none;
+        z-index: 2;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.3);
+    z-index: 5;
+    transition: all 0.4s $cbSlowOut;
+
+    .genre-name {
+      z-index: 6;
+      font-weight: bold;
+    }
+
+    .images-container {
+      border-color: color(main-green);
+      box-shadow: 0px 0px 100px -40px color(main-green);
+    }
+  }
+}

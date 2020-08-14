@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Route, withRouter, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
+import { fetchConfig } from "../store/state/config";
+import { setLogoCompactOn, setLogoCompactOff } from "../store/state/logoState";
 import HomePage from "../components/HomePage/HomePage";
 import Movies from "../components/Movies/Movies";
 import Genres from "../components/Genres/Genres";
 import MyList from "../components/MyList/MyList";
-import { setLogoCompactOn, setLogoCompactOff } from "../store/state/logoState";
+import MoviePage from "./MoviePage/MoviePage";
 
 const Routes = ({
   location,
@@ -14,14 +16,13 @@ const Routes = ({
   setLogoCompactOn,
   setLogoCompactOff
 }) => {
-  const [previousPage, setPreviousPage] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setPreviousPage(location.pathname);
-  }, [location]);
+    dispatch(fetchConfig());
+  }, []);
 
   useEffect(() => {
-    //setting the correct logostate (for when using browser nav or direct link to the page)
     if (location.pathname === "/") {
       if (logoCompact) {
         setLogoCompactOff();
@@ -45,6 +46,7 @@ const Routes = ({
             <Route path="/movies" exact component={Movies} />
             <Route path="/genres" exact component={Genres} />
             <Route path="/mylist" exact component={MyList} />
+            <Route path="/movie/:id" exact component={MoviePage} />
           </Switch>
         </div>
       </CSSTransition>

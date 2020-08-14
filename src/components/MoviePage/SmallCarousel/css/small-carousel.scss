@@ -1,0 +1,92 @@
+@import "../../../../scss/variables.scss";
+
+$slide-width: 400px;
+$slide-height: 225px;
+
+.carousel-container {
+  position: relative;
+  height: $slide-height;
+
+  .trailers-root {
+    position: absolute;
+    width: 100%;
+
+    transform: translateX(-#{$slide-width/2});
+
+    .trailers-container {
+      position: relative;
+      background-color: red;
+      margin: 0 auto;
+      width: 80%;
+
+      .trailer-container {
+        position: absolute;
+
+        .trailer-video {
+          width: $slide-width;
+          height: $slide-height;
+
+          border: solid 2px color(main-green);
+        }
+
+        .cover {
+          position: absolute;
+          top: -5px;
+          left: -5px;
+          background-color: color(dark-blue);
+          width: 120%;
+          height: 120%;
+          z-index: 10;
+
+          &.active {
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+
+  .minimap {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: -30px;
+    z-index: 30;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .line {
+      // margin: 2px 5px;
+      width: 20px;
+      height: 4px;
+      background-color: white;
+      opacity: 0.3;
+      box-shadow: 0px 0px 0px 0px color(main-green);
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 8px;
+      background-clip:content-box;
+      
+      transition: all 0.8s $cbSlowOut, margin 0s, padding 0s, box-shadow 0s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.active {
+        padding: 0;
+        margin: 0 8px;
+        background-color: color(main-green);
+        opacity: 1;
+        box-shadow: 0px 0px 10px 0px color(main-green);
+
+        cursor: default;
+      }
+    }
+  }
+
+  * {
+    transition: all 0.4s $cbInOut;
+  }
+}

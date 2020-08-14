@@ -1,0 +1,143 @@
+@import "../../../scss/variables.scss";
+
+.movie-page {
+  .back-arrow {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+    opacity: 0.5;
+
+    transition: all 0.4s $cbSlowOut;
+
+    z-index: 20;
+    
+    .text {
+      opacity: 0;
+      margin-left: 10px;
+      transition: all 0.4s $cbSlowOut;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+
+      .text {
+        opacity: 1;
+      }
+    }
+  }
+
+  .movie-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 40px;
+    text-align: left;
+
+    @include width768 {
+      font-size: 2rem;
+    }
+    @include width576 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .movie-genres {
+    margin: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    .genre-container {
+      display: flex;
+      align-items: center;
+
+      .genre-name {
+        text-transform: uppercase;
+        font-size: 0.6rem;
+        opacity: 0.5;
+        letter-spacing: 0.8rem;
+        font-family: "Montserrat", sans-serif;
+      }
+      .genre-dot {
+        margin: 0 20px 0 8px;
+        width: 4px;
+        height: 4px;
+        background-color: color(main-green);
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .movie-rating {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: color(main-green);
+    font-weight: bold;
+    font-size: 3rem;
+
+    span {
+      font-size: 0.5em;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      color: white;
+      opacity: 0.5;
+      font-weight: normal;
+    }
+
+    @include width768 {
+      font-size: 2rem;
+
+      span {
+        margin-bottom: 5px;
+      }
+    }
+    @include width576 {
+      font-size: 1.5rem;
+      span {
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  .section-container {
+    padding: 40px 40px;
+
+    &.full-width {
+      padding: 40px 0;
+
+      .section-title {
+        margin-left: 40px;
+      }
+    }
+    .description {
+      text-align: left;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+  }
+
+  .section-title {
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 30px;
+      height: 3px;
+      border-radius: 20px;
+      background: color(main-green);
+      box-shadow: 0px 0px 0px 0px color(main-green);
+    }
+  }
+}

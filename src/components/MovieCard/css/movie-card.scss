@@ -1,0 +1,155 @@
+@import "../../../scss/variables.scss";
+
+.movie-card {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  background-color: rgb(46, 49, 53);
+  margin: 0 auto;
+
+  border: solid 2px rgba(white, 0.5);
+  border-radius: 2px;
+
+  transition: all 0.4s $cbSlowOut;
+
+  .movie-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    top: calc(100% - 70px);
+    left: 20px;
+    height: 50px;
+    transform: translateX(0);
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: calc(100% - 20px);
+    z-index: 5;
+  }
+
+  .details {
+    opacity: 0;
+    padding: 0 20px;
+    background-color: rgba(color(darker-blue), 0.9);
+    width: calc(100% - 40px);
+    height: calc(100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.4s $cbSlowOut;
+
+    .description {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+    .bottom-details {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: calc(100% - 80px);
+      padding: 0 40px 20px;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .release-date {
+        .text {
+          opacity: 0.5;
+          font-size: 0.8rem;
+        }
+        .date {
+        }
+      }
+      .movie-rating {
+        .text {
+          font-size: 0.8rem;
+          opacity: 0.5;
+        }
+        .rating {
+          span {
+            font-weight: bold;
+            color: color(main-green);
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    .save-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      bottom: 20px;
+      right: 100px;
+      background-color: color(darker-blue);
+      border: solid 2px white;
+      border-radius: 200px;
+      z-index: 5;
+
+      transition: all 0.4s $cbSlowOut;
+
+      &:hover {
+        background-color: mix(color(darker-blue), color(main-green), 85%);
+        border-color: color(main-green);
+        box-shadow: 0px 0px 10px 0px color(main-green);
+      }
+
+      &:active {
+        box-shadow: 0px 0px 20px 2px color(main-green);
+      }
+    }
+  }
+
+  &:hover {
+    border: solid 2px color(main-green);
+    box-shadow: 0px 0px 200px -10px rgba(color(main-green), 0.5);
+    z-index: 9;
+    transform: scale(1.3);
+    cursor: pointer;
+
+    .movie-title {
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      justify-content: flex-start;
+
+      @include width992 {
+        top: calc(100% - 70px);
+        left: 20px;
+        height: 50px;
+        transform: translateX(0);
+        text-align: left;
+        justify-content: flex-end;
+      }
+    }
+
+    .details {
+      opacity: 1;
+
+      @include width992 {
+        opacity: 0;
+      }
+    }
+  }
+
+  @include width992 {
+    width: 100%;
+    height: 600px;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  @include width576 {
+    height: 300px;
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AACE,WADS,CACT,GAAG,CAAC;EACF,YAAY,EAAE,IAAI;EAClB,MAAM,EAAE,eAAe;CACxB;;AAJH,AAME,WANS,CAMT,eAAe,CAAC;EACd,WAAW,EAAE,IAAI;CAClB;;AARH,AAUE,WAVS,CAUT,WAAW,CAAC;EACV,OAAO,EAAE,GAAG;CACb",
+    "sources": [
+        "actor-card.scss",
+        "../../../../../scss/variables.scss"
+    ],
+    "names": [],
+    "file": "actor-card.css"
+}

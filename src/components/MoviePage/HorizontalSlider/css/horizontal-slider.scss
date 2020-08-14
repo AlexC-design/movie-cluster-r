@@ -1,0 +1,43 @@
+@import "../../../../scss/variables.scss";
+
+.horizontal-slider {
+  .slider-content {
+    display: flex;
+    padding: 10px 0;
+  }
+
+  .simplebar-track.simplebar-horizontal {
+    background-color: color(darker-blue);
+    border-radius: 20px;
+    overflow: visible;
+    height: 5px;
+
+    .simplebar-scrollbar {
+      top: -1px;
+      background-color: white;
+      opacity: 0.5;
+      border-radius: 20px;
+      box-shadow: 0px 0px 0px 0px color(main-green);
+
+      transition: all 0.4s $cbSlowOut;
+
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+
+  &:hover {
+    .simplebar-track.simplebar-horizontal {
+      .simplebar-scrollbar {
+        opacity: 1;
+        background-color: color(main-green) !important;
+        box-shadow: 0px 0px 20px 0px color(main-green);
+
+        &::before {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

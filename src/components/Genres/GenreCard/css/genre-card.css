@@ -1,0 +1,97 @@
+.genre-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.genre-card .genre-name {
+  margin-top: 5px;
+}
+
+.genre-card .images-container {
+  position: relative;
+  border: solid 2px #403f42;
+  height: 231px;
+  width: 154px;
+  background-color: #0c0d10;
+  -webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.genre-card .images-container .current-image {
+  position: absolute;
+}
+
+.genre-card .images-container .next-image {
+  position: absolute;
+}
+
+.genre-card .images-container img {
+  opacity: 1;
+  left: 0;
+  top: 0;
+  -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.genre-card .images-container img.top {
+  -webkit-transform: translateY(-101%);
+          transform: translateY(-101%);
+}
+
+.genre-card .images-container img.bottom {
+  -webkit-transform: translateY(101%);
+          transform: translateY(101%);
+}
+
+.genre-card .images-container img.left {
+  -webkit-transform: translateX(-101%);
+          transform: translateX(-101%);
+}
+
+.genre-card .images-container img.right {
+  -webkit-transform: translateX(101%);
+          transform: translateX(101%);
+}
+
+.genre-card .images-container img.center {
+  -webkit-transform: none;
+          transform: none;
+  z-index: 2;
+}
+
+.genre-card .images-container:hover {
+  cursor: pointer;
+}
+
+.genre-card:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  z-index: 5;
+  -webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.genre-card:hover .genre-name {
+  z-index: 6;
+  font-weight: bold;
+}
+
+.genre-card:hover .images-container {
+  border-color: #02fdd0;
+  -webkit-box-shadow: 0px 0px 100px -40px #02fdd0;
+          box-shadow: 0px 0px 100px -40px #02fdd0;
+}
+/*# sourceMappingURL=genre-card.css.map */

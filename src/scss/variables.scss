@@ -5,7 +5,8 @@ $colors: (
   darker-blue: #0c0d10,
   main-green: #02fdd0,
   light-green: #a4ffee,
-  dark-green: #004135
+  dark-green: #004135,
+  error: #e49013
 );
 
 @function color($color-name) {
@@ -22,6 +23,18 @@ $cbSlowInMild: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 $cbSlowOut: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 // ------------- MEDIA QUERIES --------------
+
+@mixin width1850 {
+  @media (max-width: 1850px) {
+    @content;
+  }
+}
+
+@mixin width1337 {
+  @media (max-width: 1337px) {
+    @content;
+  }
+}
 
 @mixin width1200 {
   @media (max-width: 1200px) {

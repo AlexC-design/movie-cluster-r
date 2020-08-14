@@ -1,0 +1,80 @@
+@import "../../../../scss/variables.scss";
+
+.large-carousel {
+  position: relative;
+
+  .image-container {
+    margin: 0 auto;
+    max-width: 1280px;
+    background-color: color(darker-blue);
+    position: relative;
+    border: solid 2px color(main-green);
+
+    .size-control-image {
+      position: relative;
+      opacity: 0;
+      width: calc(100% - 9px);
+    }
+
+    .carousel-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      opacity: 0;
+
+      transition: all 2s $cbSlowOut;
+
+      &.active {
+        opacity: 1;
+        z-index: 2;
+      }
+    }
+
+    .dots {
+      position: absolute;
+      z-index: 10;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 40px;
+
+      display: flex;
+      flex-direction: row;
+
+      .dot {
+        opacity: 0.3;
+        width: 8px;
+        height: 8px;
+        background-color: white;
+        border-radius: 50px;
+        padding: 8px;
+        background-clip: content-box;
+
+        transition: all 0.2s linear, margin 0s, padding 0s, box-shadow 0s;
+
+        &:hover {
+          opacity: 1;
+          cursor: pointer;
+        }
+
+        &.active {
+          padding: 0;
+          margin: 8px;
+          cursor: default;
+
+          opacity: 1;
+          background-color: color(main-green);
+          box-shadow: 0px 0px 10px 2px color(main-green);
+        }
+      }
+      @include width576 {
+        .dot {
+          width: 6px;
+          height: 6px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}

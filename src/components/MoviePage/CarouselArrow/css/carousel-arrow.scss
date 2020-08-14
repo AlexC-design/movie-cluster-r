@@ -1,0 +1,62 @@
+@import "../../../../scss/variables.scss";
+
+.arrow-container {
+  position: absolute;
+  top: calc(50% - 20px);
+
+  width: 40px;
+  height: 40px;
+  background-color: color(dark-blue);
+  border-radius: 100px;
+  border: solid 2px color(main-green);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+
+  transition: all 0.4s $cbSlowOut;
+
+  z-index: 5;
+
+  &.left {
+    left: 0;
+    margin-left: 40px;
+
+    .arrow {
+      margin-left: -3px;
+    }
+  }
+
+  &.right {
+    right: 0;
+    margin-right: 40px;
+    .arrow {
+      margin-right: -3px;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 20px 0px color(main-green);
+    cursor: pointer;
+  }
+  &:active {
+    box-shadow: 0px 0px 30px -5px color(main-green);
+    cursor: pointer;
+  }
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  @include width576 {
+    opacity: 0.5;
+
+    &.left {
+      margin-left: 20px;
+    }
+    &.right {
+      margin-right: 20px;
+    }
+  }
+}

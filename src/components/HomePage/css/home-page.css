@@ -1,6 +1,6 @@
 .home-page .description {
   margin-top: 65vh;
-  font-size: 1em;
+  font-size: 1rem;
   padding: 0 20px;
 }
 
@@ -9,7 +9,7 @@
   border: none;
   padding: 15px 50px;
   color: #004135;
-  font-size: 1em;
+  font-size: 1rem;
   border-radius: 5px;
   font-weight: bold;
   background-color: #02fdd0;

@@ -1,1 +1,9 @@
-@import '../../../scss/variables.scss';
+@import "../../../scss/variables.scss";
+
+.genres-page {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 40px;
+  }
+}

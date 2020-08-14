@@ -3,10 +3,10 @@ import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/configureStore";
 import { LastLocationProvider } from "react-router-last-location";
-
 import Logo from "./components/Logo/Logo";
 import Navbar from "./components/Navbar/Navbar";
 import Routes from "./components/Routes";
+import ErrorPopup from "./components/ErrorPopup/ErrorPopup";
 import "./css/app.css";
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
       <div className="App">
         <HashRouter basename="/">
           <LastLocationProvider>
+            <ErrorPopup />
             <Logo />
             <Navbar />
             <Routes />

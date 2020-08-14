@@ -1,0 +1,87 @@
+.error-popup {
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  z-index: 1001;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(12, 13, 16, 0.9);
+}
+
+.error-popup .inner-popup {
+  position: relative;
+  margin: 20px;
+  width: calc(100% - 40px);
+  max-width: 700px;
+  height: 400px;
+  background-color: #18191e;
+  border: solid 2px #e49013;
+  border-radius: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.error-popup .inner-popup .message {
+  color: #f3bc6a;
+  margin-bottom: 40px;
+}
+
+.error-popup .inner-popup button {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 120px;
+  height: 40px;
+  background-color: #e49013;
+  -webkit-box-shadow: 0px 0px 20px -5px #e49013;
+          box-shadow: 0px 0px 20px -5px #e49013;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-weight: bold;
+  -webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.error-popup .inner-popup button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 40px -5px #e49013;
+          box-shadow: 0px 0px 40px -5px #e49013;
+}
+
+.error-popup .inner-popup button:focus {
+  outline: none;
+}
+
+.error-popup .inner-popup button:active {
+  -webkit-box-shadow: 0px 0px 50px 0px #e49013;
+          box-shadow: 0px 0px 50px 0px #e49013;
+}
+
+.error-popup.hide {
+  display: none;
+}
+/*# sourceMappingURL=error-popup.css.map */

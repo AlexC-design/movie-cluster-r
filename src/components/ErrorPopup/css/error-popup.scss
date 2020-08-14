@@ -1,0 +1,68 @@
+@import "../../../scss/variables.scss";
+
+.error-popup {
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  z-index: 1001;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(color(darker-blue), 0.9);
+
+  .inner-popup {
+    position: relative;
+    margin: 20px;
+    width: calc(100% - 40px);
+    max-width: 700px;
+    height: 400px;
+    background-color: color(dark-blue);
+    border: solid 2px color(error);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .message {
+      color: lighten(color(error), 20%);
+      margin-bottom: 40px;
+    }
+    button {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 120px;
+      height: 40px;
+      background-color: color(error);
+      box-shadow: 0px 0px 20px -5px color(error);
+      border: none;
+      border-radius: 2px;
+      color: white;
+      font-weight: bold;
+
+      transition: all 0.4s $cbSlowOut;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 40px -5px color(error);
+      }
+      &:focus {
+        outline: none;
+      }
+      &:active {
+        box-shadow: 0px 0px 50px 0px color(error);
+      }
+    }
+  }
+
+  &.hide {
+    display: none;
+  }
+}

@@ -1,0 +1,87 @@
+.large-carousel {
+  position: relative;
+}
+
+.large-carousel .image-container {
+  margin: 0 auto;
+  max-width: 1280px;
+  background-color: #0c0d10;
+  position: relative;
+  border: solid 2px #02fdd0;
+}
+
+.large-carousel .image-container .size-control-image {
+  position: relative;
+  opacity: 0;
+  width: calc(100% - 9px);
+}
+
+.large-carousel .image-container .carousel-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.large-carousel .image-container .carousel-image.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.large-carousel .image-container .dots {
+  position: absolute;
+  z-index: 10;
+  bottom: -50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.large-carousel .image-container .dots .dot {
+  opacity: 0.3;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50px;
+  padding: 8px;
+  background-clip: content-box;
+  -webkit-transition: all 0.2s linear, margin 0s, padding 0s, -webkit-box-shadow 0s;
+  transition: all 0.2s linear, margin 0s, padding 0s, -webkit-box-shadow 0s;
+  transition: all 0.2s linear, margin 0s, padding 0s, box-shadow 0s;
+  transition: all 0.2s linear, margin 0s, padding 0s, box-shadow 0s, -webkit-box-shadow 0s;
+}
+
+.large-carousel .image-container .dots .dot:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.large-carousel .image-container .dots .dot.active {
+  padding: 0;
+  margin: 8px;
+  cursor: default;
+  opacity: 1;
+  background-color: #02fdd0;
+  -webkit-box-shadow: 0px 0px 10px 2px #02fdd0;
+          box-shadow: 0px 0px 10px 2px #02fdd0;
+}
+
+@media (max-width: 576px) {
+  .large-carousel .image-container .dots .dot {
+    width: 6px;
+    height: 6px;
+    padding: 5px;
+  }
+}
+/*# sourceMappingURL=large-carousel.css.map */

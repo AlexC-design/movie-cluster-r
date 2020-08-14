@@ -4,10 +4,14 @@ import { withLastLocation } from "react-router-last-location";
 import "./css/navbar.css";
 
 const Navbar = ({ location, lastLocation }) => {
-  return location.pathname !== "/" ? (
+  return !(location.pathname === "/" || location.pathname.includes("/movie/")) ? (
     <div
       className={`navbar ${
         lastLocation && lastLocation.pathname === "/" ? "navbar-enter" : ""
+      } ${
+        lastLocation && lastLocation.pathname.includes("/movie/")
+          ? "mc-fade-in"
+          : ""
       }`}
     >
       <div className="navbar-content">
