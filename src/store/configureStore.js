@@ -10,7 +10,7 @@ import rootReducer from "./reducers";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["genre"],
+  whitelist: ["genre", "savedMovies"],
   stateReconciler: autoMergeLevel2
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer());

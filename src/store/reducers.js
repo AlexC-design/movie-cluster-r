@@ -5,6 +5,7 @@ import errorPopup from "./state/errorPopup/reducer";
 import filter from "./state/filter/reducer";
 import genre from "./state/genre/reducer";
 import reachedBottom from "./state/reachedBottom/reducer";
+import savedMovies from "./state/savedMovies/reducer";
 
 const reducers = () =>
   combineReducers({
@@ -13,7 +14,8 @@ const reducers = () =>
     errorPopup,
     filter,
     genre,
-    reachedBottom
+    reachedBottom,
+    savedMovies
   });
 
 export default reducers;

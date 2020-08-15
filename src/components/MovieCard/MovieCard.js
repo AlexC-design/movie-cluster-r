@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import saveIconOff from "../../assets/svg/save-icon-off.svg";
 import saveIconOn from "../../assets/svg/save-icon-on.svg";
+import { addMovie, removeMovie } from "../../store/state/savedMovies";
 import "./css/movie-card.css";
 
 const MovieCard = ({
@@ -14,13 +15,37 @@ const MovieCard = ({
   id,
   history
 }) => {
-  const { baseURL, backdropSizes } = useSelector(state => ({
+  const [saved, setSaved] = useState(false);
+  const { baseURL, backdropSizes, savedMovies } = useSelector(state => ({
     baseURL: state.config.images.secure_base_url,
-    backdropSizes: state.config.images.backdrop_sizes
+    backdropSizes: state.config.images.backdrop_sizes,
+    savedMovies: state.savedMovies
   }));
+  const dispatch = useDispatch();
 
   const handleCardClick = () => {
     history.push(`/movie/${id}`);
+  };
+
+  useEffect(() => {
+    if (savedMovies.find(movie => movie.id === id)) {
+      setSaved(true);
+    } else {
+      setSaved(false);
+    }
+  }, [saved]);
+
+  const handleSave = e => {
+    e.stopPropagation();
+    if (saved) {
+      dispatch(removeMovie(id));
+      setSaved(false);
+    } else {
+      dispatch(
+        addMovie({ imgURL, title, description, releaseDate, rating, id })
+      );
+      setSaved(true);
+    }
   };
 
   const cropDescription = description => {
@@ -40,8 +65,8 @@ const MovieCard = ({
     <div className="movie-card" style={cardStyle} onClick={handleCardClick}>
       <div className="movie-title">{title}</div>
       <div className="details">
-        <div className="save-button">
-          <img src={saveIconOff} />
+        <div className="save-button" onClick={e => handleSave(e)}>
+          <img src={saved ? saveIconOn : saveIconOff} />
         </div>
         <div className="description">{cropDescription(description)}</div>
         <div className="bottom-details">
