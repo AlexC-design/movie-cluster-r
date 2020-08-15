@@ -18,8 +18,8 @@
   padding: 0 5px;
   border-radius: 5px;
   border: solid 2px rgba(0, 0, 0, 0);
-  -webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), border 0.4s 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), border 0.4s 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .search-bar * {
@@ -52,6 +52,8 @@
 
 .search-bar.open {
   border: solid 2px #02fdd0;
+  -webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), border 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), border 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .search-bar.open input {

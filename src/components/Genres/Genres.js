@@ -20,7 +20,7 @@ const Genres = ({ how }) => {
     <div className="genres-page page">
       <div className="container-narrow">
         <div className="page-title">Genres</div>
-        <div className="cards-container">
+        <div className="genres-container">
           {genres.map(genre => (
             <GenreCard genre={genre} key={genre} how={how} />
           ))}

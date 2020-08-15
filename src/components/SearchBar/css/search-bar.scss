@@ -12,7 +12,7 @@
   border-radius: 5px;
   border: solid 2px rgba(0, 0, 0, 0);
 
-  transition: all 0.4s $cbSlowOut;
+  transition: all 0.4s $cbSlowOut, border 0.4s 0.4s $cbSlowOut;
 
   * {
     transition: all 0.4s $cbSlowOut;
@@ -42,6 +42,9 @@
 
   &.open {
     border: solid 2px color(main-green);
+
+    transition: all 0.4s $cbSlowOut, border 0.4s $cbSlowOut;
+
 
     input {
       width: 300px;

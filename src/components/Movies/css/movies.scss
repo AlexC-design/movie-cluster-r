@@ -1,35 +1,4 @@
 @import "../../../scss/variables.scss";
 
 .movies-page {
-  .cards-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    align-items: center;
-    row-gap: 80px;
-
-    @include width1850 {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    @include width1337 {
-      grid-template-columns: 1fr 1fr;
-    }
-    @include width992 {
-      grid-template-columns: 1fr;
-      row-gap: 20px;
-    }
-  }
-}
-
-.movies-enter {
-  opacity: 0;
-  animation: movies-enter 1s 2.4s ease-out forwards;
-}
-
-@keyframes movies-enter {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }

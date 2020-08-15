@@ -38,7 +38,10 @@ const FilterDropdown = () => {
   useOutsideClick(dropdownRef);
 
   return (
-    <div className={`filter-dropdown ${open ? "open" : ""}`} ref={dropdownRef}>
+    <div
+      className={`filter-dropdown mc-fade-in ${open ? "open" : ""}`}
+      ref={dropdownRef}
+    >
       <div className="selected-option" onClick={toggleDropdown}>
         <div>{filterToName[activeFilter]}</div>
         <img className="arrow" src={downArrow} alt="" />

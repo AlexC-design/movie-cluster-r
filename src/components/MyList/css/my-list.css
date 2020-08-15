@@ -1,1 +1,5 @@
-/* No CSS *//*# sourceMappingURL=my-list.css.map */
+.my-list-page {
+  min-height: calc(100vh - 150px);
+  padding-bottom: 100px;
+}
+/*# sourceMappingURL=my-list.css.map */

@@ -1,1 +1,8 @@
-@import '../../../scss/variables.scss';
+@import "../../../scss/variables.scss";
+
+.my-list-page {
+  min-height: calc(100vh - 150px);
+  padding-bottom: 100px;
+  .container-wide {
+  }
+}

@@ -41,7 +41,7 @@ const Routes = ({
         timeout={1000}
         classNames="page-fade"
       >
-        <div className="test">
+        <div>
           <Switch location={location}>
             <Route path="/" exact component={HomePage} />
             <Route path="/movies" exact component={Movies} />

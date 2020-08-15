@@ -46,8 +46,6 @@ const Movies = ({ lastLocation }) => {
 
   useEffect(() => {
     addMovies();
-    console.log(page);
-    console.log(movies.length);
   }, [page]);
 
   useEffect(() => {

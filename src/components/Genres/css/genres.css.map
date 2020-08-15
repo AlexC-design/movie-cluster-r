@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAEA,AACE,YADU,CACV,gBAAgB,CAAC;EACf,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;EACrC,OAAO,EAAE,IAAI;CACd",
+    "mappings": "AAEA,AACE,YADU,CACV,iBAAiB,CAAC;EAChB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;EACrC,OAAO,EAAE,IAAI;CACd",
     "sources": [
         "genres.scss",
         "../../../scss/variables.scss"
