@@ -1,3 +1,7 @@
+.home-page {
+  height: calc(100vh - 50px);
+}
+
 .home-page .description {
   margin-top: 65vh;
   font-size: 1rem;

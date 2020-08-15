@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./css/filter-dropdown.css";
 import { setFilter } from "../../../store/state/filter";
 import downArrow from "../../../assets/svg/down-arrow.svg";
@@ -7,10 +7,13 @@ import { filterToName } from "../../../services/filterToName";
 
 const FilterDropdown = () => {
   const [open, setOpen] = useState(false);
+
   const { activeFilter } = useSelector(state => ({
     activeFilter: state.filter
   }));
   const dispatch = useDispatch();
+
+  const dropdownRef = useRef(null);
 
   const filters = ["popular", "top_rated", "now_playing"];
 
@@ -18,8 +21,24 @@ const FilterDropdown = () => {
     setOpen(!open);
   };
 
+  const useOutsideClick = ref => {
+    useEffect(() => {
+      const handleClickOutside = e => {
+        if (ref.current && !ref.current.contains(e.target)) {
+          setOpen(false);
+        }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  };
+  useOutsideClick(dropdownRef);
+
   return (
-    <div className={`filter-dropdown ${open ? "open" : ""}`}>
+    <div className={`filter-dropdown ${open ? "open" : ""}`} ref={dropdownRef}>
       <div className="selected-option" onClick={toggleDropdown}>
         <div>{filterToName[activeFilter]}</div>
         <img className="arrow" src={downArrow} alt="" />

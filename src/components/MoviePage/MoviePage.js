@@ -32,6 +32,13 @@ const MoviePage = ({ match, history }) => {
     getMovieDetails();
     getMovieActors();
     getSimilarMovies();
+    const timeoutId = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [id]);
 
   return movieDetails.genres ? (

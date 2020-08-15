@@ -1,0 +1,51 @@
+@import "../../../scss/variables.scss";
+
+.search-bar {
+  position: absolute;
+  right: 20px;
+  top: 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+  border-radius: 5px;
+  border: solid 2px rgba(0, 0, 0, 0);
+
+  transition: all 0.4s $cbSlowOut;
+
+  * {
+    transition: all 0.4s $cbSlowOut;
+  }
+
+  input {
+    background-color: rgba(color(darker-blue), 0);
+    border: none;
+    color: white;
+    width: 0;
+    opacity: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  img {
+    filter: invert(100%);
+
+    &:hover {
+      cursor: pointer;
+      filter: invert(90%) sepia(17%) saturate(7030%) hue-rotate(107deg)
+        brightness(102%) contrast(98%);
+    }
+  }
+
+  &.open {
+    border: solid 2px color(main-green);
+
+    input {
+      width: 300px;
+      opacity: 1;
+    }
+  }
+}

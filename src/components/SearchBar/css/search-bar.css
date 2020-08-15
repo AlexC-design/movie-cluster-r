@@ -1,0 +1,61 @@
+.search-bar {
+  position: absolute;
+  right: 20px;
+  top: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 5px;
+  border-radius: 5px;
+  border: solid 2px rgba(0, 0, 0, 0);
+  -webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.search-bar * {
+  -webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.search-bar input {
+  background-color: rgba(12, 13, 16, 0);
+  border: none;
+  color: white;
+  width: 0;
+  opacity: 0;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar img {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.search-bar img:hover {
+  cursor: pointer;
+  -webkit-filter: invert(90%) sepia(17%) saturate(7030%) hue-rotate(107deg) brightness(102%) contrast(98%);
+          filter: invert(90%) sepia(17%) saturate(7030%) hue-rotate(107deg) brightness(102%) contrast(98%);
+}
+
+.search-bar.open {
+  border: solid 2px #02fdd0;
+}
+
+.search-bar.open input {
+  width: 300px;
+  opacity: 1;
+}
+/*# sourceMappingURL=search-bar.css.map */

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { withLastLocation } from "react-router-last-location";
 import { useDispatch, useSelector } from "react-redux";
 import { setErrorOn } from "../../store/state/errorPopup";
@@ -12,6 +12,8 @@ const Movies = ({ lastLocation }) => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const { filter } = useSelector(state => ({ filter: state.filter }));
+
+  const pageRef = useRef();
 
   const fetchMovies = async () => {
     try {
@@ -33,6 +35,7 @@ const Movies = ({ lastLocation }) => {
 
   useEffect(() => {
     fetchMovies();
+    window.scrollTo(0, 0);
   }, [filter]);
 
   useEffect(() => {
@@ -41,6 +44,7 @@ const Movies = ({ lastLocation }) => {
 
   return (
     <div
+      ref={pageRef}
       className={`movies-page page ${
         lastLocation && lastLocation.pathname === "/" ? "movies-enter" : ""
       }`}

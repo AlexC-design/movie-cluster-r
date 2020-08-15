@@ -1,5 +1,5 @@
 export const filterToName = {
-  popular: "Popular",
+  popular: "Most Popular",
   top_rated: "Top Rated",
   now_playing: "Now Playing"
 };

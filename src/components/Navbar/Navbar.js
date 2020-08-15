@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { withLastLocation } from "react-router-last-location";
 import FilterDropdown from "./FilterDropdown/FilterDropdown";
 import "./css/navbar.css";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Navbar = ({ location, lastLocation }) => {
+  const [searchOpen, setSearchOpen] = useState(false);
+
   return !(
     location.pathname === "/" || location.pathname.includes("/movie/")
   ) ? (
@@ -36,7 +39,8 @@ const Navbar = ({ location, lastLocation }) => {
         >
           My list
         </Link>
-        <FilterDropdown />
+        {!searchOpen && location.pathname === "/movies" && <FilterDropdown />}
+        <SearchBar open={searchOpen} setOpen={setSearchOpen} />
       </div>
     </div>
   ) : null;
