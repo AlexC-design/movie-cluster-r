@@ -1,0 +1,108 @@
+.loading {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 100px auto;
+}
+
+.loading * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.loading .small-circle {
+  -webkit-animation: spin1 2s infinite linear;
+          animation: spin1 2s infinite linear;
+}
+
+.loading .big-circle {
+  -webkit-animation: spin2 2s infinite linear;
+          animation: spin2 2s infinite linear;
+}
+
+.loading .glow {
+  -webkit-animation: pulse 2s infinite linear;
+          animation: pulse 2s infinite linear;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(2, 253, 208, 0.1);
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 100px 25px #02fdd0;
+          box-shadow: 0 0 100px 25px #02fdd0;
+}
+
+@-webkit-keyframes spin1 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spin1 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin2 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(-360deg);
+            transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(-360deg);
+            transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.5);
+            transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.5);
+            transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+/*# sourceMappingURL=loading.css.map */

@@ -6,14 +6,20 @@ import { filterToName } from "../../services/filterToName";
 import { API } from "../../api";
 import MovieCard from "../MovieCard/MovieCard";
 import "./css/movies.css";
+import Loading from "../Loading/Loading";
 
 const Movies = ({ lastLocation }) => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
-  const { filter } = useSelector(state => ({ filter: state.filter }));
+  const { filter, reachedBottom } = useSelector(state => ({
+    filter: state.filter,
+    reachedBottom: state.reachedBottom
+  }));
 
   const pageRef = useRef();
+
+  // ------------------------ FETCHING MOVIES -----------------------------
 
   const fetchMovies = async () => {
     try {
@@ -40,7 +46,15 @@ const Movies = ({ lastLocation }) => {
 
   useEffect(() => {
     addMovies();
+    console.log(page);
+    console.log(movies.length);
   }, [page]);
+
+  useEffect(() => {
+    if (reachedBottom) {
+      setPage(page + 1);
+    }
+  }, [reachedBottom]);
 
   return (
     <div
@@ -68,6 +82,7 @@ const Movies = ({ lastLocation }) => {
             }
           })}
         </div>
+        <Loading />
       </div>
     </div>
   );

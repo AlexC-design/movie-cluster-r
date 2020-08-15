@@ -127,7 +127,6 @@ const GenreCard = ({ genre, how, history }) => {
   // ------------------- GO TO GENRE ----------------------
 
   const handleClick = () => {
-    console.log(genre)
     dispatch(setGenre(genre));
     history.push(`genre/${genre.id}`);
   };

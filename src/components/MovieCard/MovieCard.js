@@ -1,9 +1,9 @@
 import React from "react";
-import "./css/movie-card.css";
+import { withRouter } from "react-router";
 import { useSelector } from "react-redux";
 import saveIconOff from "../../assets/svg/save-icon-off.svg";
 import saveIconOn from "../../assets/svg/save-icon-on.svg";
-import { withRouter } from "react-router";
+import "./css/movie-card.css";
 
 const MovieCard = ({
   imgURL,

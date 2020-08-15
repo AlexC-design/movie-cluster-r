@@ -1,12 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { withLastLocation } from "react-router-last-location";
+import { useDispatch, useSelector } from "react-redux";
+import { setReachedBottom } from "../../store/state/reachedBottom";
 import FilterDropdown from "./FilterDropdown/FilterDropdown";
-import "./css/navbar.css";
 import SearchBar from "../SearchBar/SearchBar";
+import "./css/navbar.css";
 
 const Navbar = ({ location, lastLocation }) => {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [onTop, setOnTop] = useState(false);
+
+  const dispatch = useDispatch();
+  const { reachedBottom } = useSelector(state => ({
+    reachedBottom: state.reachedBottom
+  }));
+
+  // ------------------------ SCROLL POSITION -----------------------------
+
+  const handleScroll = e => {
+    let scrollBot = document.documentElement.scrollTop + window.innerHeight;
+    let scrollTop = document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight;
+
+    if (scrollBot > height - 200) {
+      if (!reachedBottom) {
+        dispatch(setReachedBottom(true));
+      }
+    } else {
+      if (reachedBottom) {
+        dispatch(setReachedBottom(false));
+      }
+    }
+    if (scrollTop > 0) {
+      if (onTop) setOnTop(false);
+    } else {
+      if (!onTop) setOnTop(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [onTop, reachedBottom]);
 
   return !(
     location.pathname === "/" || location.pathname.includes("/movie/")

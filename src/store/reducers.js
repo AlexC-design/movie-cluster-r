@@ -4,6 +4,7 @@ import config from "./state/config/reducer";
 import errorPopup from "./state/errorPopup/reducer";
 import filter from "./state/filter/reducer";
 import genre from "./state/genre/reducer";
+import reachedBottom from "./state/reachedBottom/reducer";
 
 const reducers = () =>
   combineReducers({
@@ -11,7 +12,8 @@ const reducers = () =>
     config,
     errorPopup,
     filter,
-    genre
+    genre,
+    reachedBottom
   });
 
 export default reducers;
