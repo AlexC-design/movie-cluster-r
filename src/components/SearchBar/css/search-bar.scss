@@ -30,7 +30,19 @@
     }
   }
 
-  img {
+  .search-icon {
+    filter: invert(100%);
+
+    &:hover {
+      cursor: pointer;
+      filter: invert(90%) sepia(17%) saturate(7030%) hue-rotate(107deg)
+        brightness(102%) contrast(98%);
+    }
+  }
+
+  .close {
+    width: 0;
+    opacity: 0;
     filter: invert(100%);
 
     &:hover {
@@ -45,9 +57,14 @@
 
     transition: all 0.4s $cbSlowOut, border 0.4s $cbSlowOut;
 
-
     input {
       width: 300px;
+      opacity: 1;
+      margin-left: 10px;
+    }
+
+    .close {
+      width: 20px;
       opacity: 1;
     }
   }

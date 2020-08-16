@@ -1,15 +1,35 @@
 import React, { useRef, useState, useEffect } from "react";
+import closeButton from "../../assets/svg/close.svg";
 import searchIcon from "../../assets/svg/search.svg";
 import "./css/search-bar.css";
+import { withRouter } from "react-router";
 
-const SearchBar = ({ open, setOpen }) => {
+const SearchBar = ({ open, setOpen, history }) => {
+  const [query, setQuery] = useState("");
+
   const inputRef = useRef();
-  const imgRef = useRef();
+  const searchBarRef = useRef();
 
-  const handleClick = () => {
-    !open ? inputRef.current.focus() : inputRef.current.blur();
+  const handleSearchClick = () => {
+    if (open && query !== "") {
+      history.push(`/search/${query}`);
+    }
 
-    setOpen(!open);
+    inputRef.current.focus();
+    setOpen(true);
+  };
+
+  const handleInputChange = e => {
+    setQuery(e.target.value);
+  };
+
+  const handleKeyDown = e => {
+    if (e.key === "Enter" && query !== "") {
+      history.push(`/search/${query}`);
+    }
+    if (e.key === "Escape") {
+      setOpen(false);
+    }
   };
 
   const useOutsideClick = ref => {
@@ -26,20 +46,37 @@ const SearchBar = ({ open, setOpen }) => {
       };
     }, [ref]);
   };
-  useOutsideClick(imgRef);
+  useOutsideClick(searchBarRef);
+
+  useEffect(() => {
+    if (!open) {
+      setQuery("");
+    }
+  });
 
   return (
-    <div className={`search-bar ${open ? "open" : ""}`}>
-      <input ref={inputRef} />
+    <div ref={searchBarRef} className={`search-bar ${open ? "open" : ""}`}>
       <img
         className="search-icon"
         src={searchIcon}
         alt=""
-        onClick={handleClick}
-        ref={imgRef}
+        onClick={handleSearchClick}
+      />
+      <input
+        ref={inputRef}
+        placeholder="Search movies"
+        value={query}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+      />
+      <img
+        className="close"
+        src={closeButton}
+        alt=""
+        onClick={() => setOpen(false)}
       />
     </div>
   );
 };
 
-export default SearchBar;
+export default withRouter(SearchBar);

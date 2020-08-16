@@ -194,7 +194,7 @@ const SmallCarousel = ({ id }) => {
         </div>
       </div>
     </div>
-  ) : null;
+  ) : <div>No trailers available</div>;
 };
 
 export default SmallCarousel;

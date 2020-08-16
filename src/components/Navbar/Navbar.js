@@ -40,7 +40,11 @@ const Navbar = ({ location, lastLocation }) => {
   };
 
   useEffect(() => {
-    if (lastLocation && lastLocation.pathname.includes("/movie/")) {
+    if (
+      lastLocation &&
+      lastLocation.pathname.includes("/movie/") &&
+      !location.pathname.includes("/movie/")
+    ) {
       window.scrollTo(0, 0);
     }
   }, [location]);
