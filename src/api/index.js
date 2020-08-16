@@ -11,12 +11,6 @@ export const API = {
     });
   },
 
-  fetchMoviesFromGenres: async (id, page) => {
-    return await axios.get(`/discover/movie`, {
-      params: { page, with_genres: `${id}` }
-    });
-  },
-
   fetchMovieDetails: async id => {
     return await axios.get(`/movie/${id}`);
   },
@@ -41,9 +35,15 @@ export const API = {
     return await axios.get("/genre/movie/list");
   },
 
-  fetchMoviesFromGenre: async id => {
+  fetchMoviesFromGenre: async (id, page) => {
     return await axios.get(`/discover/movie`, {
-      params: { page: 1, with_genres: `${id}` }
+      params: { page, with_genres: `${id}` }
+    });
+  },
+
+  searchMovies: async (page, query) => {
+    return await axios.get(`/search/movie`, {
+      params: { page, query }
     });
   }
 };

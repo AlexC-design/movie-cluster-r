@@ -1,32 +1,29 @@
-import React, { useEffect, useState, useRef } from "react";
-import { withLastLocation } from "react-router-last-location";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setErrorOn } from "../../store/state/errorPopup";
-import { filterToName } from "../../services/filterToName";
 import { API } from "../../api";
 import MovieCard from "../MovieCard/MovieCard";
-import "./css/movies.css";
+import "./css/search-page.css";
 import Loading from "../Loading/Loading";
 
-const Movies = ({ lastLocation }) => {
+const SearchPage = ({ match }) => {
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
   const [loadingMovies, setLoadingMovies] = useState(false);
   const dispatch = useDispatch();
-  const { filter, reachedBottom } = useSelector(state => ({
-    filter: state.filter,
+  const { reachedBottom } = useSelector(state => ({
     reachedBottom: state.reachedBottom
   }));
-
-  const pageRef = useRef();
+  const { term } = match.params;
 
   // ------------------------ FETCHING MOVIES -----------------------------
 
-  const fetchMovies = async () => {
+  const searchMovies = async () => {
     setLoadingMovies(true);
     try {
-      let { data } = await API.fetchMovies(filter, 1);
-      setMovies(data.results);
+      let response = await API.searchMovies(1, term);
+      let response2 = await API.searchMovies(2, term);
+      setMovies([...response.data.results, ...response2.data.results]);
     } catch (error) {
       dispatch(setErrorOn("An error has occured when fetching movies"));
     }
@@ -36,7 +33,7 @@ const Movies = ({ lastLocation }) => {
   const addMovies = async () => {
     setLoadingMovies(true);
     try {
-      let { data } = await API.fetchMovies(filter, page);
+      let { data } = await API.searchMovies(page, term);
       setMovies([...movies].concat(data.results));
     } catch (error) {
       dispatch(setErrorOn("An error has occured when fetching movies"));
@@ -49,9 +46,9 @@ const Movies = ({ lastLocation }) => {
   }, []);
 
   useEffect(() => {
-    fetchMovies();
+    searchMovies();
     window.scrollTo(0, 0);
-  }, [filter]);
+  }, [term]);
 
   useEffect(() => {
     addMovies();
@@ -64,14 +61,9 @@ const Movies = ({ lastLocation }) => {
   }, [reachedBottom]);
 
   return (
-    <div
-      ref={pageRef}
-      className={`movies-page page ${
-        lastLocation && lastLocation.pathname === "/" ? "movies-enter" : ""
-      }`}
-    >
+    <div className="search-page page">
       <div className="container-wide">
-        <div className="page-title">{filterToName[filter]} movies</div>
+        <div className="page-title">Searching for '{term}'</div>
         <div className="cards-container">
           {movies.map(movie => {
             if (movie.backdrop_path) {
@@ -95,4 +87,4 @@ const Movies = ({ lastLocation }) => {
   );
 };
 
-export default withLastLocation(Movies);
+export default SearchPage;

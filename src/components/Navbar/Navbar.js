@@ -23,7 +23,7 @@ const Navbar = ({ location, lastLocation }) => {
     let scrollTop = document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight;
 
-    if (scrollBot > height - 200) {
+    if (scrollBot > height - 1) {
       if (!reachedBottom) {
         dispatch(setReachedBottom(true));
       }
@@ -38,6 +38,12 @@ const Navbar = ({ location, lastLocation }) => {
       if (!onTop) setOnTop(true);
     }
   };
+
+  useEffect(() => {
+    if (lastLocation && lastLocation.pathname.includes("/movie/")) {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);

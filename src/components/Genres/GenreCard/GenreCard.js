@@ -37,7 +37,7 @@ const GenreCard = ({ genre, how, history }) => {
   // --------------------- FETCHING IMAGES -----------------------
 
   const getImages = async () => {
-    let response = await API.fetchMoviesFromGenre(genre.id);
+    let response = await API.fetchMoviesFromGenre(genre.id, 1);
 
     const images = response.data.results.reduce((moviePaths, movie) => {
       if (movie.poster_path) {

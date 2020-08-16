@@ -3,6 +3,7 @@ import { API } from "../../../api";
 import "./css/large-carousel.css";
 import { useSelector } from "react-redux";
 import CarouselArrow from "../CarouselArrow/CarouselArrow";
+import Loading from "../../Loading/Loading";
 
 const LargeCarousel = ({ id }) => {
   const [images, setImages] = useState([]);
@@ -56,7 +57,7 @@ const LargeCarousel = ({ id }) => {
     }
   };
 
-  return (
+  return images.length ? (
     <div className="large-carousel">
       <CarouselArrow direction="left" clickAction={prevSlide} />
       <CarouselArrow direction="right" clickAction={nextSlide} />
@@ -83,6 +84,8 @@ const LargeCarousel = ({ id }) => {
         ))}
       </div>
     </div>
+  ) : (
+    <Loading />
   );
 };
 

@@ -139,13 +139,18 @@ html * {
 }
 
 .mc-fade-in {
-  -webkit-animation: mc-fade-in 0.4s ease-out;
-          animation: mc-fade-in 0.4s ease-out;
+  -webkit-animation: mc-fade-in 0.4s ease-out forwards;
+          animation: mc-fade-in 0.4s ease-out forwards;
 }
 
 .mc-fade-in-slow {
-  -webkit-animation: mc-fade-in 1s ease-out;
-          animation: mc-fade-in 1s ease-out;
+  -webkit-animation: mc-fade-in 1s ease-out forwards;
+          animation: mc-fade-in 1s ease-out forwards;
+}
+
+.mc-fade-in-movie {
+  -webkit-animation: mc-fade-in 1s 0.2s ease-in forwards;
+          animation: mc-fade-in 1s 0.2s ease-in forwards;
 }
 
 @-webkit-keyframes mc-fade-in {

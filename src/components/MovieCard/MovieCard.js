@@ -62,7 +62,11 @@ const MovieCard = ({
   };
 
   return (
-    <div className="movie-card" style={cardStyle} onClick={handleCardClick}>
+    <div
+      className="movie-card mc-fade-in-movie"
+      style={cardStyle}
+      onClick={handleCardClick}
+    >
       <div className="movie-title">{title}</div>
       <div className="details">
         <div className="save-button" onClick={e => handleSave(e)}>

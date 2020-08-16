@@ -10,6 +10,7 @@ import Genres from "../components/Genres/Genres";
 import MyList from "../components/MyList/MyList";
 import MoviePage from "./MoviePage/MoviePage";
 import GenreMoviesPage from "./GenreMoviesPage/GenreMoviesPage";
+import SearchPage from "./SearchPage/SearchPage";
 
 const Routes = ({
   location,
@@ -54,6 +55,7 @@ const Routes = ({
             />
             <Route path="/mylist" exact component={MyList} />
             <Route path="/movie/:id" exact component={MoviePage} />
+            <Route path="/search/:term" exact component={SearchPage} />
           </Switch>
         </div>
       </CSSTransition>

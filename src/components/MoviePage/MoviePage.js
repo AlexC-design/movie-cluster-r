@@ -78,23 +78,27 @@ const MoviePage = ({ match, history }) => {
           <div className="section-title">Trailers</div>
           <SmallCarousel id={id} />
         </div>
-        <div className="section-container">
-          <div className="section-title">Actors</div>
-          <HorizontalSlider>
-            {actors.map(actor => {
-              if (actor.profile_path) return <ActorCard actor={actor} />;
-            })}
-          </HorizontalSlider>
-        </div>
-        <div className="section-container">
-          <div className="section-title">Similar Movies</div>
-          <HorizontalSlider>
-            {similarMovies.map(movie => {
-              if (movie.backdrop_path)
-                return <SimilarMovieCard movie={movie} />;
-            })}
-          </HorizontalSlider>
-        </div>
+        {actors.length ? (
+          <div className="section-container">
+            <div className="section-title">Actors</div>
+            <HorizontalSlider>
+              {actors.map(actor => {
+                if (actor.profile_path) return <ActorCard actor={actor} />;
+              })}
+            </HorizontalSlider>
+          </div>
+        ) : null}
+        {similarMovies.length ? (
+          <div className="section-container">
+            <div className="section-title">Similar Movies</div>
+            <HorizontalSlider>
+              {similarMovies.map(movie => {
+                if (movie.backdrop_path)
+                  return <SimilarMovieCard movie={movie} />;
+              })}
+            </HorizontalSlider>
+          </div>
+        ) : null}
       </div>
     </div>
   ) : null;

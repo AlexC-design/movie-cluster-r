@@ -111,11 +111,15 @@ html {
 
 // -- MC-FADE --
 .mc-fade-in {
-  animation: mc-fade-in 0.4s ease-out;
+  animation: mc-fade-in 0.4s ease-out forwards;
 }
 
 .mc-fade-in-slow {
-  animation: mc-fade-in 1s ease-out;
+  animation: mc-fade-in 1s ease-out forwards;
+}
+
+.mc-fade-in-movie {
+  animation: mc-fade-in 1s 0.2s ease-in forwards;
 }
 
 @keyframes mc-fade-in {

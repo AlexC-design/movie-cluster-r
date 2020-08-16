@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "search-page.scss",
+        "../../../scss/variables.scss"
+    ],
+    "names": [],
+    "file": "search-page.css"
+}
