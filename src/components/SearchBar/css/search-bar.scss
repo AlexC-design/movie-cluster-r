@@ -68,4 +68,21 @@
       opacity: 1;
     }
   }
+
+  @include width992 {
+    position: relative;
+    flex-direction: row-reverse;
+    top: 0;
+    right: 0;
+    margin: 20px 0;
+    opacity: 0;
+
+    &.menu-open {
+      opacity: 1;
+    }
+
+    .close {
+      display: none;
+    }
+  }
 }

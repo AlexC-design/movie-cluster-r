@@ -1,0 +1,64 @@
+@import "../../../../scss/variables.scss";
+
+.burger-menu {
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: 13px;
+  right: 20px;
+  opacity: 0;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .line {
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    border-radius: 20px;
+    transform-origin: left;
+
+    transition: all 0.4s $cbSlowOut;
+  }
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: color(darker-blue);
+    border: solid 0px;
+    border-color: white;
+    width: 0;
+    height: 0;
+    border-radius: 50px;
+
+    transition: all 0.4s $cbInOut, border-color 1s $cbSlowOut;
+  }
+
+  &.open {
+    .line {
+      &.top {
+        transform: rotate(-20deg);
+      }
+    }
+
+    .circle {
+      border: solid 2px;
+      border-color: color(main-green);
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include width992 {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

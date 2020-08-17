@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setReachedBottom } from "../../store/state/reachedBottom";
 import FilterDropdown from "./FilterDropdown/FilterDropdown";
 import SearchBar from "../SearchBar/SearchBar";
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import "./css/navbar.css";
 
 const Navbar = ({ location, lastLocation }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [onTop, setOnTop] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const dispatch = useDispatch();
   const { reachedBottom } = useSelector(state => ({
@@ -67,7 +69,7 @@ const Navbar = ({ location, lastLocation }) => {
         lastLocation && lastLocation.pathname.includes("/movie/")
           ? "mc-fade-in"
           : ""
-      }`}
+      } ${menuOpen ? "open" : ""}`}
     >
       <div className="navbar-content">
         <Link
@@ -89,7 +91,13 @@ const Navbar = ({ location, lastLocation }) => {
           My list
         </Link>
         {!searchOpen && location.pathname === "/movies" && <FilterDropdown />}
-        <SearchBar open={searchOpen} setOpen={setSearchOpen} />
+        {window.innerWidth <= 992 && <FilterDropdown />}
+        <SearchBar
+          open={searchOpen}
+          setOpen={setSearchOpen}
+          menuOpen={menuOpen}
+        />
+        <BurgerMenu open={menuOpen} setOpen={setMenuOpen} />
       </div>
     </div>
   ) : null;

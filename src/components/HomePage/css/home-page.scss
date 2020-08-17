@@ -2,11 +2,15 @@
 
 .home-page {
   height: calc(100vh - 50px);
-  
+
   .description {
     margin-top: 65vh;
     font-size: 1rem;
     padding: 0 20px;
+
+    @include width576 {
+      margin-top: 55vh;
+    }
   }
 
   .cta {

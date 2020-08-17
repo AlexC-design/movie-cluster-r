@@ -56,6 +56,57 @@
       }
     }
   }
+
+  @include width1337 {
+    justify-content: flex-start;
+
+    .navbar-content {
+      margin-left: 100px;
+      a {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  @include width992 {
+    top: 0;
+    width: 100%;
+    border-radius: 0;
+    justify-content: center;
+    align-items: flex-end;
+
+    transition: all 0.4s $cbSlowOut;
+
+    * {
+      transition: all 0.4s $cbSlowOut;
+    }
+
+    .navbar-content {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+
+      a {
+        opacity: 0;
+        margin: 20px 0 0;
+        &:after {
+          width: 20%;
+          left: 40%;
+        }
+      }
+    }
+
+    &.open {
+      height: 300px;
+      background-color: rgba(color(darker-blue), 0.99);
+
+      .navbar-content {
+        a {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
 .navbar-enter {

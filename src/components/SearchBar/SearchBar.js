@@ -4,7 +4,7 @@ import searchIcon from "../../assets/svg/search.svg";
 import "./css/search-bar.css";
 import { withRouter } from "react-router";
 
-const SearchBar = ({ open, setOpen, history }) => {
+const SearchBar = ({ open, setOpen, history, menuOpen }) => {
   const [query, setQuery] = useState("");
 
   const inputRef = useRef();
@@ -32,6 +32,12 @@ const SearchBar = ({ open, setOpen, history }) => {
     }
   };
 
+  useEffect(() => {
+    if (window.innerWidth <= 992 && menuOpen) {
+      setOpen(true);
+    }
+  });
+
   const useOutsideClick = ref => {
     useEffect(() => {
       const handleClickOutside = e => {
@@ -49,13 +55,18 @@ const SearchBar = ({ open, setOpen, history }) => {
   useOutsideClick(searchBarRef);
 
   useEffect(() => {
-    if (!open) {
+    if (!open && window.innerWidth >= 992) {
       setQuery("");
     }
   });
 
   return (
-    <div ref={searchBarRef} className={`search-bar ${open ? "open" : ""}`}>
+    <div
+      ref={searchBarRef}
+      className={`search-bar ${open ? "open" : ""} ${
+        menuOpen ? "menu-open" : ""
+      }`}
+    >
       <img
         className="search-icon"
         src={searchIcon}
