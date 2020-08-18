@@ -68,6 +68,9 @@ const MovieCard = ({
       onClick={handleCardClick}
     >
       <div className="movie-title">{title}</div>
+      <div className="save-button mobile" onClick={e => handleSave(e)}>
+        <img src={saved ? saveIconOn : saveIconOff} />
+      </div>
       <div className="details">
         <div className="save-button" onClick={e => handleSave(e)}>
           <img src={saved ? saveIconOn : saveIconOff} />

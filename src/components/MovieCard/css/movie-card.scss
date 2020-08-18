@@ -80,31 +80,36 @@
         }
       }
     }
-    .save-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      bottom: 20px;
-      right: 100px;
-      background-color: color(darker-blue);
-      border: solid 2px white;
-      border-radius: 200px;
-      z-index: 5;
+  }
 
-      transition: all 0.4s $cbSlowOut;
+  .save-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 100px;
+    background-color: color(darker-blue);
+    border: solid 2px white;
+    border-radius: 200px;
+    z-index: 5;
 
-      &:hover {
-        background-color: mix(color(darker-blue), color(main-green), 85%);
-        border-color: color(main-green);
-        box-shadow: 0px 0px 10px 0px color(main-green);
-      }
+    transition: all 0.4s $cbSlowOut;
 
-      &:active {
-        box-shadow: 0px 0px 20px 2px color(main-green);
-      }
+    &:hover {
+      background-color: mix(color(darker-blue), color(main-green), 85%);
+      border-color: color(main-green);
+      box-shadow: 0px 0px 10px 0px color(main-green);
+    }
+
+    &:active {
+      box-shadow: 0px 0px 20px 2px color(main-green);
+    }
+
+    &.mobile {
+      opacity: 0;
     }
   }
 
@@ -145,6 +150,17 @@
     width: 100%;
     height: 600px;
 
+    .save-button.mobile {
+      opacity: 1;
+      top: 30px;
+      right: 30px;
+      border-color: color(main-green);
+
+      &:active {
+        transform: scale(1.2);
+      }
+    }
+
     &:hover {
       transform: scale(1);
     }
@@ -152,5 +168,10 @@
 
   @include width576 {
     height: 300px;
+
+    .save-button.mobile {
+      top: 15px;
+      right: 15px;
+    }
   }
 }
