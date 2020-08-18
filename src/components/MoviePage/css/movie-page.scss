@@ -14,7 +14,7 @@
     transition: all 0.4s $cbSlowOut;
 
     z-index: 20;
-    
+
     .text {
       opacity: 0;
       margin-left: 10px;
@@ -29,6 +29,10 @@
         opacity: 1;
       }
     }
+
+    @include width992 {
+      display: none;
+    }
   }
 
   .movie-title {
@@ -39,6 +43,7 @@
 
     @include width768 {
       font-size: 2rem;
+      text-align: center;
     }
     @include width576 {
       font-size: 1.5rem;
@@ -68,6 +73,24 @@
         height: 4px;
         background-color: color(main-green);
         border-radius: 10px;
+      }
+    }
+
+    @include width768 {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto;
+
+      .genre-container {
+        flex-direction: column;
+
+        .genre-name {
+          margin-right: -0.8rem;
+        }
+        .genre-dot {
+          margin: 10px 0;
+        }
       }
     }
   }

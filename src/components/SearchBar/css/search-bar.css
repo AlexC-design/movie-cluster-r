@@ -95,6 +95,15 @@
   .search-bar.menu-open {
     opacity: 1;
   }
+}
+
+@media (max-width: 992px) and (max-width: 576px) {
+  .search-bar.open input {
+    width: 250px;
+  }
+}
+
+@media (max-width: 992px) {
   .search-bar .close {
     display: none;
   }

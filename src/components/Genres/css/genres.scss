@@ -5,5 +5,15 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     row-gap: 40px;
+
+    @include width850 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include width650 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include width576 {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }

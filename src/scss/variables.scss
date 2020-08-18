@@ -48,8 +48,20 @@ $cbSlowOut: cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
 
+@mixin width850 {
+  @media (max-width: 850px) {
+    @content;
+  }
+}
+
 @mixin width768 {
   @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin width650 {
+  @media (max-width: 650px) {
     @content;
   }
 }

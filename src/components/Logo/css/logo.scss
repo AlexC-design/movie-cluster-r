@@ -160,6 +160,7 @@ $white-circle-opacity-back: 0s 0.4s ease-out;
           opacity: 0.2;
         }
       }
+
       @include width768 {
         transform: translate(-50%, -100%) scale(0.7);
       }
@@ -168,8 +169,18 @@ $white-circle-opacity-back: 0s 0.4s ease-out;
       }
     }
 
+    @include width992 {
+      top: 42px;
+      left: 30px;
+    }
+
+    @include width768 {
+      top: 37px;
+    }
+
     @include width576 {
       transform: translate(-50%, -100%) scale(0.4);
+      top: 42px;
     }
   }
 }

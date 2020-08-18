@@ -5,4 +5,25 @@
       grid-template-columns: repeat(5, 1fr);
   row-gap: 40px;
 }
+
+@media (max-width: 850px) {
+  .genres-page .genres-container {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .genres-page .genres-container {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .genres-page .genres-container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
 /*# sourceMappingURL=genres.css.map */

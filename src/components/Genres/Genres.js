@@ -22,7 +22,7 @@ const Genres = ({ how }) => {
         <div className="page-title">Genres</div>
         <div className="genres-container">
           {genres.map(genre => (
-            <GenreCard genre={genre} key={genre} how={how} />
+            <GenreCard genre={genre} key={genre.id} how={how} />
           ))}
         </div>
       </div>

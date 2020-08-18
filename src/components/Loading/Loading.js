@@ -5,7 +5,7 @@ import "./css/loading.css";
 
 const Loading = () => {
   return (
-    <div class="loading">
+    <div className="loading">
       <img src={smallCricle} className="small-circle" alt="" />
       <img src={bigCricle} className="big-circle" alt="" />
       <div className="glow" />

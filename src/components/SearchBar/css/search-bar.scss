@@ -81,6 +81,14 @@
       opacity: 1;
     }
 
+    @include width576 {
+      &.open {
+        input {
+          width: 250px;
+        }
+      }
+    }
+
     .close {
       display: none;
     }

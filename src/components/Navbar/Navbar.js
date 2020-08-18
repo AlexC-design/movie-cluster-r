@@ -12,6 +12,7 @@ const Navbar = ({ location, lastLocation }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [onTop, setOnTop] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showFilters, setshowFilters] = useState(true);
 
   const dispatch = useDispatch();
   const { reachedBottom } = useSelector(state => ({
@@ -49,6 +50,8 @@ const Navbar = ({ location, lastLocation }) => {
     ) {
       window.scrollTo(0, 0);
     }
+
+    setMenuOpen(false);
   }, [location]);
 
   useEffect(() => {
@@ -58,6 +61,19 @@ const Navbar = ({ location, lastLocation }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [onTop, reachedBottom]);
+
+  useEffect(() => {
+    setshowFilters(
+      (!searchOpen && location.pathname === "/movies") ||
+        (window.innerWidth <= 992 &&
+          !menuOpen &&
+          location.pathname === "/movies")
+    );
+
+    if (window.innerWidth <= 992 && !menuOpen) {
+      setSearchOpen(false);
+    }
+  });
 
   return !(
     location.pathname === "/" || location.pathname.includes("/movie/")
@@ -90,8 +106,7 @@ const Navbar = ({ location, lastLocation }) => {
         >
           My list
         </Link>
-        {!searchOpen && location.pathname === "/movies" && <FilterDropdown />}
-        {window.innerWidth <= 992 && <FilterDropdown />}
+        {showFilters && <FilterDropdown />}
         <SearchBar
           open={searchOpen}
           setOpen={setSearchOpen}

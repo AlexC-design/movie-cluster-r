@@ -51,28 +51,33 @@ const MoviePage = ({ match, history }) => {
         <LargeCarousel id={id} />
       </div>
       <div className="container-narrow">
-        <div className="movie-title">{movieDetails.original_title}</div>
-        <div className="movie-genres">
-          {movieDetails.genres.map((genre, index) => {
-            return (
-              <div className="genre-container" key={genre.id}>
-                <div className="genre-name">{genre.name}</div>
-                {index !== movieDetails.genres.length - 1 ? (
-                  <div className="genre-dot" />
-                ) : (
-                  <div />
-                )}
-              </div>
-            );
-          })}
-        </div>
-        <div className="movie-rating">
-          {movieDetails.vote_average}
-          <span>/10</span>
+        <div className="section-container">
+          <div className="movie-title">{movieDetails.original_title}</div>
+          <div className="movie-genres">
+            {movieDetails.genres.map((genre, index) => {
+              return (
+                <div className="genre-container" key={genre.id}>
+                  <div className="genre-name">{genre.name}</div>
+                  {index !== movieDetails.genres.length - 1 ? (
+                    <div className="genre-dot" />
+                  ) : (
+                    <div />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <div className="movie-rating">
+            {movieDetails.vote_average}
+            <span>/10</span>
+          </div>
         </div>
         <div className="section-container">
           <div className="section-title">Description</div>
-          <div className="description">{movieDetails.overview}</div>
+          {movieDetails.overview && (
+            <div className="description">{movieDetails.overview}</div>
+          )}
+          {!movieDetails.overview && <div>No description available</div>}
         </div>
         <div className="section-container full-width">
           <div className="section-title">Trailers</div>

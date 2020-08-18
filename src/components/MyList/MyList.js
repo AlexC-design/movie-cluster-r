@@ -8,10 +8,6 @@ const MyList = () => {
     movies: state.savedMovies
   }));
 
-  useEffect(() => {
-    console.log(movies);
-  });
-
   return (
     <div className="my-list-page page">
       <div className="container-wide">
