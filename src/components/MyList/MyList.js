@@ -8,27 +8,35 @@ const MyList = () => {
     movies: state.savedMovies
   }));
 
+  useEffect(() => {
+    console.log(movies);
+  });
+
   return (
     <div className="my-list-page page">
       <div className="container-wide">
         <div className="page-title">My List</div>
-        <div className="cards-container">
-          {movies.map(movie => {
-            if (movie.imgURL) {
-              return (
-                <MovieCard
-                  imgURL={movie.imgURL}
-                  title={movie.title}
-                  description={movie.description}
-                  releaseDate={movie.releaseDate}
-                  rating={movie.rating}
-                  id={movie.id}
-                  key={movie.id}
-                />
-              );
-            }
-          })}
-        </div>
+        {movies.length ? (
+          <div className="cards-container">
+            {movies.map(movie => {
+              if (movie.imgURL) {
+                return (
+                  <MovieCard
+                    imgURL={movie.imgURL}
+                    title={movie.title}
+                    description={movie.description}
+                    releaseDate={movie.releaseDate}
+                    rating={movie.rating}
+                    id={movie.id}
+                    key={movie.id}
+                  />
+                );
+              }
+            })}
+          </div>
+        ) : (
+          <div>No movies added to the list</div>
+        )}
       </div>
     </div>
   );

@@ -1,1 +1,8 @@
 @import "../../../scss/variables.scss";
+
+.search-page {
+  min-height: calc(100vh - 150px);
+  padding-bottom: 100px;
+  .container-wide {
+  }
+}

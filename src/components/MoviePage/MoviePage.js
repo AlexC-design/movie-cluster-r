@@ -21,7 +21,21 @@ const MoviePage = ({ match, history }) => {
   };
   const getMovieActors = async () => {
     const response = await API.fetchMovieCredits(id);
-    setActors(response.data.cast);
+
+    let actors = [];
+
+    response.data.cast.forEach(actor => {
+      console.log(actor);
+      if (actor.profile_path) {
+        actors.push(actor);
+      }
+    });
+
+    console.log(actors);
+
+    if (actors.length) {
+      setActors(actors);
+    }
   };
   const getSimilarMovies = async () => {
     const response = await API.fetchSimilarMovies(id);
@@ -52,7 +66,7 @@ const MoviePage = ({ match, history }) => {
       </div>
       <div className="container-narrow">
         <div className="section-container">
-          <div className="movie-title">{movieDetails.original_title}</div>
+          <div className="movie-title">{movieDetails.title}</div>
           <div className="movie-genres">
             {movieDetails.genres.map((genre, index) => {
               return (
@@ -87,12 +101,18 @@ const MoviePage = ({ match, history }) => {
           <div className="section-container">
             <div className="section-title">Actors</div>
             <HorizontalSlider>
-              {actors.map(actor => {
-                if (actor.profile_path) return <ActorCard actor={actor} />;
-              })}
+              {actors.map(actor => (
+                <ActorCard actor={actor} />
+              ))}
             </HorizontalSlider>
           </div>
-        ) : null}
+        ) : (
+          <div className="section-container">
+            <div className="section-title">Actors</div>
+            <HorizontalSlider></HorizontalSlider>
+            <div>No actor information available</div>
+          </div>
+        )}
         {similarMovies.length ? (
           <div className="section-container">
             <div className="section-title">Similar Movies</div>
@@ -103,7 +123,12 @@ const MoviePage = ({ match, history }) => {
               })}
             </HorizontalSlider>
           </div>
-        ) : null}
+        ) : (
+          <div className="section-container">
+            <div className="section-title">Similar Movies</div>
+            <div>No similar movies available</div>
+          </div>
+        )}
       </div>
     </div>
   ) : null;

@@ -1,1 +1,5 @@
-/* No CSS *//*# sourceMappingURL=search-page.css.map */
+.search-page {
+  min-height: calc(100vh - 150px);
+  padding-bottom: 100px;
+}
+/*# sourceMappingURL=search-page.css.map */
